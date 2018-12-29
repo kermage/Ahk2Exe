@@ -13,6 +13,12 @@ AhkCompile(ByRef AhkFile, ExeFile="", ByRef CustomIcon="", BinFile="", UseMPRESS
 		ExeFile = %AhkFile_Dir%\%AhkFile_NameNoExt%.exe
 	else
 		ExeFile := Util_GetFullPath(ExeFile)
+
+	CustomIconTmp = %AhkFile_Dir%\%AhkFile_NameNoExt%.ico
+
+	if CustomIcon =
+		if FileExist(CustomIconTmp)
+			CustomIcon := CustomIconTmp
 	
 	;ExeFileTmp := ExeFile
 	ExeFileTmp := Util_TempFile()
